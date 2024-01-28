@@ -39,7 +39,7 @@
   .paw-imgs{
     z-index: -1;
    position: absolute;
-    background-image: url(/img/pawimg.png) ;
+    background-image: url(/Pet/img/pawimg.png) ;
   background-repeat:no-repeat;
     width: 200px;
     height: 100px;
@@ -107,7 +107,7 @@ content: "";
 height: 2rem;
 width: 40%;
 margin:0 auto;
-background-image: url("/img/Dog_Paw_Print.png") ;
+background-image: url("/pet/img/Dog_Paw_Print.png") ;
 background-repeat: no-repeat;
 background-size: 1rem;
 /* background-color: red; */
@@ -397,8 +397,8 @@ transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   flex-direction: row;
   background-color: #ffffff;
-  /* transform: translateX(-100%); */
-
+  
+   
 }
 
 
@@ -470,10 +470,15 @@ top: 50%;
   span.prev{
     left: -5%;
     top: 50%;
+  display: none;
       }
+
+     
 
       span.next:hover, span.prev:hover{
         color: #fdd236;
+        font-size: 3rem;
+        transition:font-size .2s ease-in-out; 
       }
 
       .dotsContainer {

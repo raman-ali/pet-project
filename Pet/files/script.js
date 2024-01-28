@@ -57,26 +57,50 @@ for (var i = 0; i < buttons.length; i++) {
 
 
 
-//slider
+//slider:https://www.youtube.com/watch?v=PsNaoDhzQm0&list=PLpwngcHZlPae68z_mLFNfbJFIJVJ_Zcx2
 
+const initSliser =() =>{
+  const cardNum =document.querySelectorAll(".card")
+  const slideButtons = document.querySelectorAll(".slider-button")
+  const imageList = document.querySelector(".carrousel")
+  const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+  let counter = 0
+  slideButtons.forEach(button=>{
+    button.addEventListener('click',()=>{
+       const direction = button.id === 'prev' ?-0.5:0.5;
+       const scrollAmount = imageList.clientWidth * direction
+       imageList.scrollBy({left:scrollAmount, behavior:"smooth"})
+      
+        if(counter<=cardNum.length-2){
+          counter = button.id === 'prev' ?counter-1:counter+1;
+          console.log(counter)
+        }else{
+          counter = button.id === 'prev' ?counter-1:counter;
+          console.log(counter+"else")
+        }
+        
+    })
 
-let slideImages = document.querySelectorAll('.card'); 
+  })
+ 
+  const handleSlideButtons =() =>{
+    slideButtons[1].style.display = imageList.scrollLeft<=0?"none":"block"
+    slideButtons[0].style.display = imageList.scrollLeft>=maxScrollLeft?"none":"block"
 
-// Access the next and prev buttons
-let next = document.querySelector('.next');
-let prev = document.querySelector('.prev');
-// Access the indicators
-let dots = document.querySelectorAll('.dot');
-var counter = 0;
-// Code for next button
-next.addEventListener('click', slideNext);
-function slideNext(){
-slideImages[counter].style.animation = 'next1 0.5s ease-in forwards';
-if (counter >= slideImages.length-1){
-counter = 0;
-}else{counter++
+  }
+
+  let dots = document.querySelectorAll('.dot')
+  const handleDotes =()=>{
+    for(let i=0; i<dots.length; i++){
+      dots[i].className = dots[i].className.replace(' active', '')
+    }
+    dots[counter].className+=' active'
+  }
+
+ imageList.addEventListener("scroll", ()=>{
+  handleSlideButtons()
+  handleDotes()
+ })
 
 }
-slideImages[counter].style.animation = 'next2 0.5s ease-in forwards';
-
-}
+window.addEventListener("load", initSliser)
