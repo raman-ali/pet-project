@@ -37,7 +37,7 @@ for (var i = 0; i < buttons.length; i++) {
 
 //paw imgs https://javascript.plainenglish.io/how-to-add-a-div-element-to-the-body-or-document-with-javascript-58164217992d
 
-// let pawCount = 10;
+// let pawCount = 100;
 
 // for (var i = 0; i < pawCount; i++) {
 //   let ranomTop = Math.floor(Math.random() * 199) - 99;  //possiteve and nigative http://www.java2s.com/example/javascript/data-type/random-number-between-negative-and-positive-value.html
@@ -92,9 +92,9 @@ const initSliser =() =>{
   let dots = document.querySelectorAll('.dot')
   const handleDotes =()=>{
     for(let i=0; i<dots.length; i++){
-      dots[i].className = dots[i].className.replace(' active', '')
+      dots[i].className = dots[i].className.replace(' active-p', '')
     }
-    dots[counter].className+=' active'
+    dots[counter].className+=' active-p'
   }
 
  imageList.addEventListener("scroll", ()=>{
